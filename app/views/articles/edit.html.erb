@@ -1,27 +1,5 @@
 <h1>Editer l'article !</h1>
 
-<% if @article.errors.any? %>
-    <h3>Informations incorrectes: </h3>
-    <ul>
-        <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_for @article do |f| %>
-    <p>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to "Retour à la liste", articles_path %>
