@@ -20,3 +20,9 @@ $navbar-default-bg:  #3498db;
 .center {
     text-align: center;
 }
+
+.jumbotron {
+    background-image: asset-url('rocky.PNG');
+    background-size: cover;
+    height: 700px;
+}
