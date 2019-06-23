@@ -26,3 +26,23 @@ $navbar-default-bg:  #3498db;
     background-size: cover;
     height: 700px;
 }
+
+footer {
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #3498db;
+    color: rgb(78, 78, 78);
+}
+
+footer small {
+    float: left;
+}
+
+footer nav ul{
+    float: right;
+    list-style: none;
+}
+
+footer nav ul li{
+    margin-left: 15px;
+}
