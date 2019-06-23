@@ -13,7 +13,7 @@ $navbar-default-bg:  #3498db;
 }
 
 #bs-example-navbar-collapse-1 ul li a{
-    color: rgb(224, 224, 224);
+    color: rgb(201, 197, 197);
     font-weight: bold;
 }
 
@@ -34,12 +34,6 @@ footer {
     color: rgb(78, 78, 78);
 }
 
-.article-actions {
-    border-top: 1px solid #3498db;
-    padding-top: 5px;
-    margin-top: 15px;
-}
-
 footer small {
     float: left;
 }
@@ -55,8 +49,4 @@ footer nav ul li{
 
 ul {
     list-style: none;
-}
-
-.well {
-    word-wrap: break-word;
 }
