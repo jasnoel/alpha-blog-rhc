@@ -3,6 +3,7 @@
         <h2><%= @article.title %></h2>
         <div class="container well col-xs-6">
             <p><%= @article.description %></p>
+            <small>Autheur: <%= link_to @article.user.username, user_path(@article.user) %> | Créé le <%= @article.created_at.to_date %> | Mis à jour le <%= @article.updated_at.to_date %></s>
 
             <div class="article-actions">
                 <%= link_to "Editer", edit_article_path(@article), class: "btn btn-xs btn-primary" %>

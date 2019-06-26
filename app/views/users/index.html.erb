@@ -1,0 +1,17 @@
+<h2 class="center">Liste des Utilisateurs</h2>
+
+<div class="row center">
+    <div class="col-xs-2 col-xs-offset-5">
+        <div class="panel panel-default">
+            <% @users.each do |user| %>
+                <div class="panel-heading">
+                    <%= link_to (gravatar_for user, size: 25), user_path(user)  %>
+                    <%= link_to user.username, user_path(user) %>
+                </div>
+                <div class="panel-body">
+                    articles créés: <%= user.articles.count %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
