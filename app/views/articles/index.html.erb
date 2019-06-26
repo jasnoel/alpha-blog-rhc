@@ -1,9 +1,8 @@
 <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
         <h2>Liste de nos articles !</h2>
-
         <p><%= link_to "Créer un nouvel article", new_article_path %></p>
-
         <%= render 'articles', obj: @articles %>
     </div>
+    <div class="center"><%= will_paginate @posts %></div>
 </div>

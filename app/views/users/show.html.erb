@@ -1,10 +1,11 @@
 <div class="row center">
-    <h1>Profile de <%= @user.username %></h1>
+    <h2>Profile de <%= @user.username %></h2>
 
     <%= gravatar_for @user, size: 120  %>
 
-    <h3 >Articles de <%= @user.username %></h3>
+    <h4>Articles de <%= @user.username %></h4>
     <div class="col-md-6 col-md-offset-3"> 
-        <%= render 'articles/articles', obj: @user.articles %>
+        <%= render 'articles/articles', obj: @user_articles %>
     </div>
+    <%= will_paginate @user_articles %>
 </div>
