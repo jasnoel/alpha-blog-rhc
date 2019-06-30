@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
-    before_action :set_user, only: [:edit, :show, :update]
-    before_action :require_same_user, only: [:edit, :update, :delete]
+    before_action :set_user, only: [:edit, :show, :update, :destroy]
+    before_action :require_same_user, only: [:edit, :update]
+    before_action :require_admin, only: :destroy
 
     def index
         @users = User.paginate(page: params[:page], per_page: 5)
@@ -38,6 +39,12 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        @user.destroy
+        flash[:success] = "Compte supprimé avec succès"
+        redirect_to users_path
+    end
+
     private
 
     def set_user
@@ -51,6 +58,13 @@ class UsersController < ApplicationController
     def require_same_user
         if @user != current_user and current_user.admin != true
             flash[:danger] = "t'es un fou dans ta tête toi ! tu t'es prit pour qui ?!"
+            redirect_to user_path(@user)
+        end
+    end
+
+    def require_admin
+        if !logged_in? or !current_user.admin?
+            flash[:danger] = "IL faut être admin pour faire ça. Hors tu n'es pas admin"
             redirect_to user_path(@user)
         end
     end
