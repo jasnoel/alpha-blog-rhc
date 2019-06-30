@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     end
 
     def edit
+        redirect_to user_path(@user) if !(logged_in? and @user == current_user)
     end
 
     def update

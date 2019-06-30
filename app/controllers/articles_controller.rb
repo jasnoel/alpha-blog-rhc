@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
     end
 
     def edit
+        redirect_to article_path(@article) if !(logged_in? and @article.user == current_user)
     end
 
     def update
