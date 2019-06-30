@@ -2,7 +2,7 @@
     <div class="col-xs-8 col-xs-offset-2">
         <h2>Liste de nos articles !</h2>
         <% if logged_in? %>
-        <p><%= link_to "Créer un nouvel article", new_article_path %></p>
+        <p class="btn btn-xs btn-success"><%= link_to "Créer un nouvel article", new_article_path %></p>
         <% end %>
         <%= render 'articles', obj: @articles %>
     </div>
