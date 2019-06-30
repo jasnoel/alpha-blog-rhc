@@ -49,7 +49,7 @@ class UsersController < ApplicationController
     end
 
     def require_same_user
-        if @user != current_user
+        if @user != current_user and current_user.admin != true
             flash[:danger] = "t'es un fou dans ta tête toi ! tu t'es prit pour qui ?!"
             redirect_to user_path(@user)
         end

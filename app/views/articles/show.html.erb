@@ -6,7 +6,7 @@
             <small>Autheur: <%= link_to @article.user.username, user_path(@article.user) %> | Créé le <%= @article.created_at.to_date %> | Mis à jour le <%= @article.updated_at.to_date %></s>
 
             <div class="article-actions">
-                <% if logged_in? and @article.user == current_user %>
+                <% if logged_in? and (@article.user == current_user or current_user.admin?) %>
                     <%= link_to "Editer", edit_article_path(@article), class: "btn btn-xs btn-primary" %>
                     <%= link_to "Supprimer l'article", article_path(@article), method: :delete, class: "btn btn-xs btn-danger" %>
                 <% end %>
