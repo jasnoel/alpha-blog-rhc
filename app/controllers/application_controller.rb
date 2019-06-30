@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     def require_user
         if !logged_in?
             flash[:danger] = "Pas possible car tu n'es pas connecté"
-            redirec_to loggin_path
+            redirect_to login_path
         end
     end
 

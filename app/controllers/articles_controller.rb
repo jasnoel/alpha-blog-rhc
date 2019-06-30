@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
     before_action :get_article, only: [:show, :edit, :update, :destroy]
+    before_action :require_user, except: [:index, :show]
+    before_action :require_author, only: [:edit, :update, :destroy]
 
     def index
         @articles = Article.paginate(page: params[:page], per_page: 10)
@@ -10,7 +12,6 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        redirect_to article_path(@article) if !(logged_in? and @article.user == current_user)
     end
 
     def update
@@ -29,7 +30,7 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(article_params)
         #Triche en attendant
-        @article.user = User.first
+        @article.user = current_user
         if @article.save
             flash[:success] = "l'article bel et bien créé !"
             redirect_to article_path(@article)
@@ -53,6 +54,13 @@ class ArticlesController < ApplicationController
 
     def article_params
         params.require(:article).permit(:title, :description)
+    end
+
+    def require_author
+        if @article.user != current_user
+            flash[:danger] = "Vil chenapan ! Tu n'es pas l'auteur de cet article !"
+            redirect_to article_path(@article)
+        end
     end
 
 end

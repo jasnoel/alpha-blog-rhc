@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     before_action :set_user, only: [:edit, :show, :update]
+    before_action :require_same_user, only: [:edit, :update, :delete]
 
     def index
         @users = User.paginate(page: params[:page], per_page: 5)
@@ -25,7 +26,6 @@ class UsersController < ApplicationController
     end
 
     def edit
-        redirect_to user_path(@user) if !(logged_in? and @user == current_user)
     end
 
     def update
@@ -45,5 +45,12 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :email, :password)
+    end
+
+    def require_same_user
+        if @user != current_user
+            flash[:danger] = "t'es un fou dans ta tête toi ! tu t'es prit pour qui ?!"
+            redirect_to user_path(@user)
+        end
     end
 end
