@@ -1,5 +1,22 @@
-<h1>Qui somme nous ?</h1>
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <h1>Qui suis-je-t-il ?</h1>
+        <p>Jason Noël, développeur web Ruby on Rails de 20 ans</p>
 
-<%= link_to 'Home', root_path %>
+        <h1>Pourquoi ce site ?</h1>
 
-<p>Ipsum lorem incroyable du cul!</p>
+        <p>Ce site est mon premier petit projet déstiné a démontrer mes compétences.</p>
+        <p>Il a été créé en suivant une formation en ligne :"Rails Heroes Course"</p>
+        <p>Cette formation m'a apprit le framework Ruby on Rails grâce auquel je peux créer une application web lisible rapidement</p>
+
+        <h1>Me contacter</h1>
+        <ul class="social-medias">
+            <li><a href="https://fr.linkedin.com/in/jason-no%C3%ABl-431930157" title="Linked in" ><%= image_tag 'linkedin_icone.png' %></a></li>
+            <li><a href="https://github.com/jasnoel" title="Github" ><%= image_tag 'github_icone.png' %></a></li>
+            <li>email : "jason.noel.imp@gmail.com"</li>
+            <li>Telephone : 07 83 89 50 18</li>
+        </ul>
+
+        <%= link_to 'Retourner aux articles', root_path, class: "btn btn-xs btn-success" %>
+    </div>
+</div>
